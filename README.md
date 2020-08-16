@@ -1,5 +1,9 @@
 # maillogger
 
+![PyPI](https://img.shields.io/pypi/v/maillogger)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/maillogger)
+![PyPI - License](https://img.shields.io/pypi/l/maillogger)
+
 Analysis tool for Postfix log in /var/log/maillog
 
 <!-- TOC depthFrom:2 -->
