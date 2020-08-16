@@ -1,0 +1,8 @@
+Aug 11 03:30:58 mail postfix/smtp[9944]: 8ECF240F31: to=<aa@ezweb.ne.jp>, relay=lsean.ezweb.ne.jp[27.85.176.228]:25, delay=0.1, delays=0.04/0/0.02/0.03, dsn=2.0.0, status=sent (250 Ok: queued as 9FFCB76)
+Aug 11 03:37:17 mail postfix/smtp[10305]: 4F64840DFC: to=<bb@yahoo.co.jp>, relay=mx2.mail.yahoo.co.jp[124.83.142.119]:25, delay=13, delays=0.05/0/0.03/13, dsn=2.0.0, status=sent (250 ok dirdel)
+Aug 10 03:44:46 mail postfix/smtp[14879]: E5D4840DA0: to=<cc@docomo.ne.je>, relay=docomo.ne.je[157.112.187.13]:25, delay=151541, delays=151540/0.03/0.12/0.5, dsn=4.7.1, status=deferred (host docomo.ne.je[157.112.187.13] said: 454 4.7.1 <cc@docomo.ne.je>: Relay access denied (in reply to RCPT TO command))
+Aug 10 04:10:15 mail postfix/smtp[16703]: 8495840E93: to=<dd@gmail.cm>, relay=none, delay=315562, delays=315532/0/30/0, dsn=4.4.1, status=deferred (connect to gmail.cm[172.217.25.69]:25: Connection timed out)
+Aug 10 08:23:14 mail postfix/smtp[2352]: 66C1E40D18: to=<ee@yahoo.co.jp>, relay=mx1.mail.yahoo.co.jp[202.93.66.124]:25, delay=10, delays=0.05/0/0.02/10, dsn=5.0.0, status=bounced (host mx1.mail.yahoo.co.jp[202.93.66.124] said: 554 delivery error: dd This user doesn't have a yahoo.co.jp account (ee@yahoo.co.jp) [-5] - mta086.mail.bbt.yahoo.co.jp (in reply to end of DATA command))
+Aug 11 10:35:20 mail postfix/smtp[9657]: 998864068E: to=<ff@ezweb.ne.jp>, relay=lsean.ezweb.ne.jp[27.85.176.228]:25, delay=29, delays=0.04/0/0.03/28, dsn=5.0.0, status=bounced (host lsean.ezweb.ne.jp[27.85.176.228] said: 550 : User unknown (in reply to end of DATA command))
+Aug 10 03:49:45 mail postfix/qmgr[2748]: 76DEF40E80: from=<>, size=2351, nrcpt=1 (queue active)
+Aug 10 03:50:15 mail postfix/smtp[15245]: connect to mail.gmail.ne.jp[160.16.210.40]:25: Connection timed out
