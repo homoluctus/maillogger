@@ -12,7 +12,7 @@ mypy:
 
 .PHONY: test
 test:
-	poetry run pytest -vv tests/
+	poetry run pytest tests/
 
 .PHONY: audit
 audit:
