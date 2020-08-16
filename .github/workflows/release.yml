@@ -53,7 +53,6 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           release_name: ${{ github.ref }}
-          body: |
-            ${{ steps.create-release-notes.outputs.changelog }}
+          body: ${{ steps.create-release-notes.outputs.changelog }}
           draft: false
           prerelease: false
