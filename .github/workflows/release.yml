@@ -1,0 +1,59 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - '[0-9]*.[0-9]*.[0-9]*'
+
+jobs:
+  pypi:
+    name: Release to PyPI
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+
+      - name: Install dependencies
+        run: |
+          pip install poetry
+          poetry install --no-dev
+
+      - name: Release
+        env:
+          POETRY_USERNAME: ${{ secrets.POETRY_USERNAME }}
+          POETRY_PASSWORD: ${{ secrets.POETRY_PASSWORD }}
+        run: make release username=$POETRY_USERNAME password=$POETRY_PASSWORD
+
+  github:
+    name: Release to GitHub
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Create release notes
+        id: create-release-notes
+        run: |
+          brew tap git-chglog/git-chglog
+          brew install git-chglog
+
+          TAG=$(echo "$GITHUB_REF" | sed 's/refs\/tags\///g')
+          echo "tag: $TAG"
+
+          CHANGELOG=$(git-chglog "$TAG")
+
+          echo "$CHANGELOG"
+          echo "::set-output name=changelog::$CHANGELOG"
+
+      - uses: actions/create-release@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: ${{ github.ref }}
+          body: |
+            ${{ steps.create-release-notes.outputs.changelog }}
+          draft: false
+          prerelease: false
