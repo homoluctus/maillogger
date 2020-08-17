@@ -1,80 +1,68 @@
 [
   {
-    "month": "Aug",
-    "day": "11",
-    "time": "03:30:58",
-    "id": "8ECF240F31",
-    "to": "aa@ezweb.ne.jp",
+    "mail_id": "8ECF240F31",
+    "to_address": "aa@ezweb.ne.jp",
     "relay": "lsean.ezweb.ne.jp[27.85.176.228]:25",
     "delay": "0.1",
     "delays": "0.04/0/0.02/0.03",
     "dsn": "2.0.0",
     "status": "sent",
-    "description": "250 Ok: queued as 9FFCB76"
+    "description": "250 Ok: queued as 9FFCB76",
+    "datetime": "20200811033058"
   },
   {
-    "month": "Aug",
-    "day": "11",
-    "time": "03:37:17",
-    "id": "4F64840DFC",
-    "to": "bb@yahoo.co.jp",
+    "mail_id": "4F64840DFC",
+    "to_address": "bb@yahoo.co.jp",
     "relay": "mx2.mail.yahoo.co.jp[124.83.142.119]:25",
     "delay": "13",
     "delays": "0.05/0/0.03/13",
     "dsn": "2.0.0",
     "status": "sent",
-    "description": "250 ok dirdel"
+    "description": "250 ok dirdel",
+    "datetime": "20200811033717"
   },
   {
-    "month": "Aug",
-    "day": "10",
-    "time": "03:44:46",
-    "id": "E5D4840DA0",
-    "to": "cc@docomo.ne.je",
+    "mail_id": "E5D4840DA0",
+    "to_address": "cc@docomo.ne.je",
     "relay": "docomo.ne.je[157.112.187.13]:25",
     "delay": "151541",
     "delays": "151540/0.03/0.12/0.5",
     "dsn": "4.7.1",
     "status": "deferred",
-    "description": "host docomo.ne.je[157.112.187.13] said: 454 4.7.1 <cc@docomo.ne.je>: Relay access denied (in reply to RCPT TO command)"
+    "description": "host docomo.ne.je[157.112.187.13] said: 454 4.7.1 <cc@docomo.ne.je>: Relay access denied (in reply to RCPT TO command)",
+    "datetime": "20200810034446"
   },
   {
-    "month": "Aug",
-    "day": "10",
-    "time": "04:10:15",
-    "id": "8495840E93",
-    "to": "dd@gmail.cm",
+    "mail_id": "8495840E93",
+    "to_address": "dd@gmail.cm",
     "relay": "none",
     "delay": "315562",
     "delays": "315532/0/30/0",
     "dsn": "4.4.1",
     "status": "deferred",
-    "description": "connect to gmail.cm[172.217.25.69]:25: Connection timed out"
+    "description": "connect to gmail.cm[172.217.25.69]:25: Connection timed out",
+    "datetime": "20200810041015"
   },
   {
-    "month": "Aug",
-    "day": "10",
-    "time": "08:23:14",
-    "id": "66C1E40D18",
-    "to": "ee@yahoo.co.jp",
+    "mail_id": "66C1E40D18",
+    "to_address": "ee@yahoo.co.jp",
     "relay": "mx1.mail.yahoo.co.jp[202.93.66.124]:25",
     "delay": "10",
     "delays": "0.05/0/0.02/10",
     "dsn": "5.0.0",
     "status": "bounced",
-    "description": "host mx1.mail.yahoo.co.jp[202.93.66.124] said: 554 delivery error: dd This user doesn't have a yahoo.co.jp account (ee@yahoo.co.jp) [-5] - mta086.mail.bbt.yahoo.co.jp (in reply to end of DATA command)"
+    "description": "host mx1.mail.yahoo.co.jp[202.93.66.124] said: 554 delivery error: dd This user doesn't have a yahoo.co.jp account (ee@yahoo.co.jp) [-5] - mta086.mail.bbt.yahoo.co.jp (in reply to end of DATA command)",
+    "datetime": "20200810082314"
   },
   {
-    "month": "Aug",
-    "day": "11",
-    "time": "10:35:20",
-    "id": "998864068E",
-    "to": "ff@ezweb.ne.jp",
+    "mail_id": "998864068E",
+    "to_address": "ff@ezweb.ne.jp",
     "relay": "lsean.ezweb.ne.jp[27.85.176.228]:25",
     "delay": "29",
     "delays": "0.04/0/0.03/28",
     "dsn": "5.0.0",
     "status": "bounced",
-    "description": "host lsean.ezweb.ne.jp[27.85.176.228] said: 550 : User unknown (in reply to end of DATA command)"
+    "description": "host lsean.ezweb.ne.jp[27.85.176.228] said: 550 : User unknown (in reply to end of DATA command)",
+    "datetime": "20200811103520"
   }
 ]
