@@ -1,7 +1,7 @@
-month,day,time,id,to,relay,delay,delays,dsn,status,description
-Aug,11,03:30:58,8ECF240F31,aa@ezweb.ne.jp,lsean.ezweb.ne.jp[27.85.176.228]:25,0.1,0.04/0/0.02/0.03,2.0.0,sent,250 Ok: queued as 9FFCB76
-Aug,11,03:37:17,4F64840DFC,bb@yahoo.co.jp,mx2.mail.yahoo.co.jp[124.83.142.119]:25,13,0.05/0/0.03/13,2.0.0,sent,250 ok dirdel
-Aug,10,03:44:46,E5D4840DA0,cc@docomo.ne.je,docomo.ne.je[157.112.187.13]:25,151541,151540/0.03/0.12/0.5,4.7.1,deferred,host docomo.ne.je[157.112.187.13] said: 454 4.7.1 <cc@docomo.ne.je>: Relay access denied (in reply to RCPT TO command)
-Aug,10,04:10:15,8495840E93,dd@gmail.cm,none,315562,315532/0/30/0,4.4.1,deferred,connect to gmail.cm[172.217.25.69]:25: Connection timed out
-Aug,10,08:23:14,66C1E40D18,ee@yahoo.co.jp,mx1.mail.yahoo.co.jp[202.93.66.124]:25,10,0.05/0/0.02/10,5.0.0,bounced,host mx1.mail.yahoo.co.jp[202.93.66.124] said: 554 delivery error: dd This user doesn't have a yahoo.co.jp account (ee@yahoo.co.jp) [-5] - mta086.mail.bbt.yahoo.co.jp (in reply to end of DATA command)
-Aug,11,10:35:20,998864068E,ff@ezweb.ne.jp,lsean.ezweb.ne.jp[27.85.176.228]:25,29,0.04/0/0.03/28,5.0.0,bounced,host lsean.ezweb.ne.jp[27.85.176.228] said: 550 : User unknown (in reply to end of DATA command)
+mail_id,to_address,relay,delay,delays,dsn,status,description,datetime
+8ECF240F31,aa@ezweb.ne.jp,lsean.ezweb.ne.jp[27.85.176.228]:25,0.1,0.04/0/0.02/0.03,2.0.0,sent,250 Ok: queued as 9FFCB76,20200811033058
+4F64840DFC,bb@yahoo.co.jp,mx2.mail.yahoo.co.jp[124.83.142.119]:25,13,0.05/0/0.03/13,2.0.0,sent,250 ok dirdel,20200811033717
+E5D4840DA0,cc@docomo.ne.je,docomo.ne.je[157.112.187.13]:25,151541,151540/0.03/0.12/0.5,4.7.1,deferred,host docomo.ne.je[157.112.187.13] said: 454 4.7.1 <cc@docomo.ne.je>: Relay access denied (in reply to RCPT TO command),20200810034446
+8495840E93,dd@gmail.cm,none,315562,315532/0/30/0,4.4.1,deferred,connect to gmail.cm[172.217.25.69]:25: Connection timed out,20200810041015
+66C1E40D18,ee@yahoo.co.jp,mx1.mail.yahoo.co.jp[202.93.66.124]:25,10,0.05/0/0.02/10,5.0.0,bounced,host mx1.mail.yahoo.co.jp[202.93.66.124] said: 554 delivery error: dd This user doesn't have a yahoo.co.jp account (ee@yahoo.co.jp) [-5] - mta086.mail.bbt.yahoo.co.jp (in reply to end of DATA command),20200810082314
+998864068E,ff@ezweb.ne.jp,lsean.ezweb.ne.jp[27.85.176.228]:25,29,0.04/0/0.03/28,5.0.0,bounced,host lsean.ezweb.ne.jp[27.85.176.228] said: 550 : User unknown (in reply to end of DATA command),20200811103520
