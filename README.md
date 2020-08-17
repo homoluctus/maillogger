@@ -16,6 +16,8 @@ Analysis tool for Postfix log in /var/log/maillog
   - [Output a JSON file](#output-a-json-file)
   - [Output a TSV file](#output-a-tsv-file)
   - [Output a compressed CSV file](#output-a-compressed-csv-file)
+- [Use Case](#use-case)
+  - [Analysis using MySQL](#analysis-using-mysql)
 
 <!-- /TOC -->
 
@@ -93,3 +95,42 @@ maillogger /var/log/maillog result -f csv -c
 ```
 
 Then, `result.csv.gz` is generated in current working directory.
+
+## Use Case
+
+### Analysis using MySQL
+
+1. Convert maillog text to CSV file
+
+```bash
+maillogger /var/log/maillog /path/to/any -f csv
+```
+
+2. Create Table
+
+```sql
+CREATE TABLE maillog
+(
+    mail_id VARCHAR(15) NOT NULL,
+    to_address VARCHAR(50) NOT NULL,
+    relay text,
+    delay VARCHAR(10),
+    delays VARCHAR(20),
+    dsn VARCHAR(10),
+    status VARCHAR(10),
+    description text,
+    datetime DATETIME NOT NULL,
+    PRIMARY KEY (mail_id, datetime),
+    INDEX i_status(status)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+```
+
+3. Load CSV file
+
+```sql
+LOAD DATA INFILE '/path/to/any.csv'
+IGNORE INTO TABLE maillog
+FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
+LINES TERMINATED BY '\r\n'
+IGNORE 1 LINES;
+```
