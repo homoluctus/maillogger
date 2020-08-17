@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "maillogger"
-version = "0.1.0"
+version = "0.2.0"
 description = "Analysis tool for Postfix log in /var/log/maillog"
 authors = ["homoluctus <w.slife18sy@gmail.com>"]
 license = "MIT"
