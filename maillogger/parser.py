@@ -5,7 +5,7 @@ from typing import Dict, Optional
 
 
 REGEX = r'(?P<month>[A-Z][a-z]{2}) (?P<day>[0-9]{,2}) ' \
-    + r'(?P<time>[0-9]{2}:[0-9]{2}:[0-9]{2}) (?P<hostname>[A-Za-z0-9-]+) postfix/[a-z]+\[[0-9]+\]: ' \
+    + r'(?P<time>[0-9]{2}:[0-9]{2}:[0-9]{2}) (?P<hostname>[A-Za-z0-9-]+) postfix/[a-z/]+\[[0-9]+\]: ' \
     + r'(?P<mail_id>[A-Z0-9]+): to=<(?P<to_address>.*@.*)>, ' \
     + r'relay=(?P<relay>.*), delay=(?P<delay>[0-9.]+), ' \
     + r'delays=(?P<delays>[0-9][0-9/.]+), dsn=(?P<dsn>[0-9].[0-9].[0-9]), ' \
