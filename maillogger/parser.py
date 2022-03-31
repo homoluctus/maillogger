@@ -5,7 +5,7 @@ from typing import Dict, Optional
 
 
 REGEX = r'(?P<month>[A-Z][a-z]{2}) (?P<day>[0-9]{,2}) ' \
-    + r'(?P<time>[0-9]{2}:[0-9]{2}:[0-9]{2}) mail postfix/[a-z]+\[[0-9]+\]: ' \
+    + r'(?P<time>[0-9]{2}:[0-9]{2}:[0-9]{2}) (?P<hostname>[A-Za-z0-9-]+) postfix/[a-z]+\[[0-9]+\]: ' \
     + r'(?P<mail_id>[A-Z0-9]+): to=<(?P<to_address>.*@.*)>, ' \
     + r'relay=(?P<relay>.*), delay=(?P<delay>[0-9.]+), ' \
     + r'delays=(?P<delays>[0-9][0-9/.]+), dsn=(?P<dsn>[0-9].[0-9].[0-9]), ' \
@@ -53,6 +53,7 @@ class ParseResult:
     month: InitVar[str]
     day: InitVar[str]
     time: InitVar[str]
+    hostname: InitVar[str]
 
     mail_id: str
     to_address: str
@@ -65,7 +66,7 @@ class ParseResult:
 
     datetime: str = field(init=False)
 
-    def __post_init__(self, month: str, day: str, time: str) -> None:
+    def __post_init__(self, month: str, day: str, time: str, hostname: str) -> None:
         self.datetime = self.convert2dateime(month, day, time)
 
     def to_dict(self) -> ParseResultType:
