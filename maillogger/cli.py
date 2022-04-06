@@ -34,6 +34,12 @@ def setup_options(parser: argparse.ArgumentParser) -> None:
     )
 
     parser.add_argument(
+        '-g', '--group',
+        action='store_true',
+        help='Group results by mail id (only available in JSON format)'
+    )
+
+    parser.add_argument(
         '-c', '--compress',
         action='store_true',
         help='Compress the output file with gzip'
@@ -50,4 +56,9 @@ def setup_options(parser: argparse.ArgumentParser) -> None:
 def parse_options(args: Optional[List[str]] = None) -> argparse.Namespace:
     parser = get_parser()
     setup_options(parser)
-    return parser.parse_args(args=args)
+
+    options = parser.parse_args(args=args)
+    if options.group and options.fmt in ("csv", "tsv"):
+        parser.error("Grouping by mail id can only be used with JSON output.")
+
+    return options
