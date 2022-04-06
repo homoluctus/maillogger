@@ -23,7 +23,7 @@ PATTERN_TO = re.compile(REGEX_TO)
 ParseResultType = Dict[str, str]
 
 
-def parse(target: str) -> Optional[ParseResultType]:
+def parse(target: str, parse_to: bool = True, parse_from: bool = True) -> Optional[ParseResultType]:
     """Parse postfix maillog including send status
 
     Args:
@@ -61,10 +61,10 @@ def parse(target: str) -> Optional[ParseResultType]:
     match_from = re.search(PATTERN_FROM, target)
     match_to = re.search(PATTERN_TO, target)
 
-    if match_from:
+    if parse_from and match_from:
         result = match_from.groupdict()
         return ParseResultFrom(**result).to_dict()
-    if match_to:
+    if parse_to and match_to:
         result = match_to.groupdict()
         return ParseResultTo(**result).to_dict()
 

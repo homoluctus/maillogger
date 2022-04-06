@@ -10,9 +10,14 @@ def main() -> None:
     loader = Loader(options.source_file)
     contents = loader.handle()
 
+    parse_to = True
+    parse_from = True
+    if options.fmt in ("csv", "tsv"):
+        parse_from = False
+
     parsed_contents = []
     for c in contents:
-        result = parse(c)
+        result = parse(c, parse_to, parse_from)
         if result:
             parsed_contents.append(result)
 
