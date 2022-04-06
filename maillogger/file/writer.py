@@ -1,11 +1,14 @@
 import csv
 import json
 from dataclasses import dataclass
-from typing import Any, ClassVar, List, Type
+from typing import Any, ClassVar, Dict, List, Type, Union
 
+from maillogger.analyze import AggregateResultType, GroupedResultType
 from maillogger.exceptions import UnsupportedDataFormatError
 from maillogger.file.base import FileHandler
 from maillogger.parser import ParseResultType
+
+OutputResultType = Union[GroupedResultType, List[ParseResultType], AggregateResultType]
 
 
 @dataclass
@@ -32,7 +35,7 @@ class FileWriter(FileHandler):
             ext = f'{self.ext}.{self.gz_ext}'
         self.filepath = f'{self.filepath}.{ext}'
 
-    def handle(self, records: List[ParseResultType]) -> None:
+    def handle(self, records: OutputResultType) -> None:
         if not records:
             return
 
@@ -51,7 +54,7 @@ class CsvWriter(FileWriter):
 
     newline: str = ''
 
-    def write(self, records: List[ParseResultType]) -> None:
+    def write(self, records: OutputResultType) -> None:
         writer = csv.DictWriter(self.fd, fieldnames=list(records[0].keys()))
         writer.writeheader()
         writer.writerows(records)
@@ -64,7 +67,7 @@ class JsonWriter(FileWriter):
     ensure_ascii: bool = False
     indent: int = 2
 
-    def write(self, records: List[ParseResultType]) -> None:
+    def write(self, records: OutputResultType) -> None:
         json.dump(
             records,
             self.fd,  # type: ignore
@@ -76,7 +79,7 @@ class JsonWriter(FileWriter):
 class TsvWriter(FileWriter):
     ext = 'tsv'
 
-    def write(self, records: List[ParseResultType]) -> None:
+    def write(self, records: OutputResultType) -> None:
         header = '\t'.join(records[0].keys())
         self.fd.write(f'{header}\n')  # type: ignore
 
@@ -101,7 +104,7 @@ def get_writer(filepath: str, fmt: str, **kwargs: Any) -> Type[FileWriter]:
 
 def write(
         filepath: str,
-        records: List[ParseResultType],
+        records: OutputResultType,
         fmt: str,
         **kwargs: Any) -> None:
     fmt = fmt.lower()
