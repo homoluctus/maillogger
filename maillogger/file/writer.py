@@ -3,11 +3,12 @@ import json
 from dataclasses import dataclass
 from typing import Any, ClassVar, Dict, List, Type, Union
 
+from maillogger.analyze import AggregateResultType, GroupedResultType
 from maillogger.exceptions import UnsupportedDataFormatError
 from maillogger.file.base import FileHandler
 from maillogger.parser import ParseResultType
 
-OutputResultType = Union[Dict[str, List[ParseResultType]], List[ParseResultType]]
+OutputResultType = Union[GroupedResultType, List[ParseResultType], AggregateResultType]
 
 
 @dataclass

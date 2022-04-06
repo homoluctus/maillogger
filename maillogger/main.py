@@ -1,4 +1,4 @@
-from maillogger.analyze import group_by_mail_id
+from maillogger.analyze import aggregate, group_by_mail_id
 from maillogger.cli import parse_options
 from maillogger.file.loader import Loader
 from maillogger.file.writer import write
@@ -22,8 +22,11 @@ def main() -> None:
         if result:
             parsed_contents.append(result)
 
-    if options.group:
+    if options.group or options.aggregate:
         parsed_contents = group_by_mail_id(parsed_contents)
+
+    if options.aggregate:
+        parsed_contents = aggregate(parsed_contents)
 
     write(
         filepath=options.target_file, records=parsed_contents,

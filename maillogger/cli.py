@@ -40,6 +40,12 @@ def setup_options(parser: argparse.ArgumentParser) -> None:
     )
 
     parser.add_argument(
+        '-a', '--aggregate',
+        action='store_true',
+        help='Aggregate results by mail id'
+    )
+
+    parser.add_argument(
         '-c', '--compress',
         action='store_true',
         help='Compress the output file with gzip'
